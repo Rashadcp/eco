@@ -1,7 +1,26 @@
 import type { Metadata, Viewport } from "next";
+import { Outfit, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -44,8 +63,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="antialiased bg-cream-100 text-ennerty-forest min-h-screen selection:bg-ennerty-lime selection:text-ennerty-forest">
+    <html
+      lang="en"
+      className={`scroll-smooth ${outfit.variable} ${plusJakarta.variable} ${jetbrainsMono.variable}`}
+    >
+      <body className="antialiased bg-cream-100 text-ennerty-forest min-h-screen selection:bg-ennerty-lime selection:text-ennerty-forest font-sans">
         <Navbar />
         {children}
         <Footer />
@@ -53,3 +75,4 @@ export default function RootLayout({
     </html>
   );
 }
+

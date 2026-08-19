@@ -563,23 +563,23 @@ export function HeroSection({
           </div>
 
           {/* Bottom Telemetry Cards */}
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex items-end justify-between gap-2 p-3.5 sm:gap-3 sm:p-6">
-            <div className="pointer-events-auto rounded-xl border border-white/15 bg-[#092922]/85 p-2.5 backdrop-blur-md shadow-lg sm:rounded-2xl sm:p-3.5">
-              <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-[#a4c9b2] sm:text-[10px] sm:tracking-[0.16em]">
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex items-end justify-between gap-2 p-2.5 sm:gap-3 sm:p-4">
+            <div className="pointer-events-auto rounded-lg border border-white/15 bg-[#092922]/85 px-2.5 py-1.5 backdrop-blur-md shadow-md sm:rounded-xl sm:px-3 sm:py-2">
+              <p className="text-[8px] font-semibold uppercase tracking-[0.12em] text-[#a4c9b2] sm:text-[9px] sm:tracking-[0.14em]">
                 {activeMode==="daylight" ? "Solar Generation" : activeMode==="battery" ? "Battery Level" : "Grid Net Export"}
               </p>
-              <p className="mt-0.5 text-lg font-bold tracking-tight text-[#efffd7] sm:text-2xl md:text-3xl">
+              <p className="mt-0.5 text-sm font-bold tracking-tight text-[#efffd7] sm:text-base md:text-lg">
                 {activeMode==="daylight" ? "6.8 kW" : activeMode==="battery" ? "96% • Charging" : "+4.2 kW Net"}
               </p>
-              <span className="mt-0.5 flex items-center gap-1 text-[10px] font-medium text-[#d6f36a] sm:text-[11px]">
-                <TrendingUp className="h-3 w-3" />
+              <span className="mt-0.5 flex items-center gap-1 text-[9px] font-medium text-[#d6f36a] sm:text-[10px]">
+                <TrendingUp className="h-2.5 w-2.5" />
                 98% Self-Sufficiency
               </span>
             </div>
-            <div className="pointer-events-auto hidden rounded-xl border border-white/15 bg-[#092922]/85 p-2.5 text-right backdrop-blur-md shadow-lg min-[420px]:block sm:rounded-2xl sm:p-3.5">
-              <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-[#a4c9b2] sm:text-[10px] sm:tracking-[0.16em]">Carbon Offset</p>
-              <p className="mt-0.5 text-base font-bold text-[#d6f36a] sm:text-xl md:text-2xl">7.2 kg CO₂</p>
-              <span className="text-[10px] text-white/70 sm:text-[11px]">~ 2.4 trees</span>
+            <div className="pointer-events-auto hidden rounded-lg border border-white/15 bg-[#092922]/85 px-2.5 py-1.5 text-right backdrop-blur-md shadow-md min-[420px]:block sm:rounded-xl sm:px-3 sm:py-2">
+              <p className="text-[8px] font-semibold uppercase tracking-[0.12em] text-[#a4c9b2] sm:text-[9px] sm:tracking-[0.14em]">Carbon Offset</p>
+              <p className="mt-0.5 text-xs font-bold text-[#d6f36a] sm:text-sm md:text-base">7.2 kg CO₂</p>
+              <span className="text-[9px] text-white/70 sm:text-[10px]">~ 2.4 trees</span>
             </div>
           </div>
         </div>

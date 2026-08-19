@@ -79,27 +79,33 @@ export default function ProcessPage() {
             </button>
           </div>
 
-          <div className="relative min-h-[310px] overflow-hidden rounded-[2rem] bg-[#17352e] p-7 shadow-[0_24px_58px_rgba(23,53,46,0.14)] sm:min-h-[370px] sm:p-9">
-            <div className="pointer-events-none absolute -right-10 -top-10 h-56 w-56 rounded-full bg-[#d9ef9a]/15 blur-3xl" />
-            <div className="pointer-events-none absolute bottom-0 left-0 h-48 w-48 rounded-full bg-[#4b9180]/20 blur-3xl" />
-            <div className="pointer-events-none absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(224,244,204,0.25)_1px,transparent_1px),linear-gradient(90deg,rgba(224,244,204,0.25)_1px,transparent_1px)] [background-size:40px_40px]" />
-            <div className="relative flex h-full flex-col justify-between">
-              <div className="flex items-center justify-between">
-                <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#cfe0cb]">
-                  Four considered steps
-                </span>
-                <span className="text-3xl font-semibold tracking-tight text-white/10 sm:text-4xl">04</span>
+          <div className="group relative flex min-h-[380px] flex-col justify-end overflow-hidden rounded-[2rem] border border-[#cbdac6] bg-[#17352e] p-7 shadow-[0_24px_58px_rgba(23,53,46,0.14)] sm:min-h-[440px] sm:p-9">
+            <img
+              src="/images/kerala-traditional-solar-home.jpg"
+              alt="Traditional Kerala Solar Rooftop Engineering by Ennerty"
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#07241e]/95 via-[#07241e]/40 to-black/20" />
+
+            <div className="relative z-10 mb-auto flex items-center justify-between">
+              <span className="rounded-full border border-white/20 bg-black/40 px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#d6f36a] backdrop-blur-md">
+                Kerala Heritage Solar
+              </span>
+              <span className="flex items-center gap-1.5 rounded-full border border-white/20 bg-black/40 px-3 py-1 text-[10px] font-semibold text-white backdrop-blur-md">
+                <CheckCircle2 className="h-4 w-4 text-[#d6f36a]" />
+                Zero Tile Leakage
+              </span>
+            </div>
+
+            <div className="relative z-10 mt-auto rounded-xl border border-white/15 bg-[#092922]/85 p-4 backdrop-blur-md shadow-lg sm:p-5">
+              <div className="flex items-center justify-between text-xs text-[#d6f36a] font-semibold">
+                <span>Phase 03 Execution</span>
+                <span>Anodized Aluminum Mounting</span>
               </div>
-              <div>
-                <p className="text-4xl font-bold leading-none tracking-tight text-[#d9ef9a] sm:text-5xl">01</p>
-                <p className="mt-4 max-w-xs text-xl font-medium leading-tight tracking-[-0.03em] text-[#f4f9df] sm:text-2xl">
-                  Clarity comes before commitment.
-                </p>
-              </div>
-              <div className="flex items-center gap-3 text-xs text-[#aac1b0]">
-                <span className="h-px w-8 bg-[#91b46d]" />
-                Start with a free conversation
-              </div>
+              <p className="mt-1 text-xs text-white/80 sm:text-sm">
+                Precision engineering that protects traditional architectural beauty while maximizing sunlight harvest.
+              </p>
             </div>
           </div>
         </div>

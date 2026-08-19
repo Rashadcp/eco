@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["framer-motion"],
+  experimental: {
+    optimizePackageImports: ["lucide-react", "framer-motion", "canvas-confetti"],
+  },
   images: {
     remotePatterns: [
       {

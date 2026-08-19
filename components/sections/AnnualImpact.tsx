@@ -113,6 +113,143 @@ export function AnnualImpact({ onScrollToContact }: AnnualImpactProps) {
           })}
         </div>
 
+        {/* 3 Real Commissioned Kerala Installations Showcase */}
+        <div className="mt-16 sm:mt-20">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between border-b border-[#d8e3d4] pb-6">
+            <div>
+              <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#578172]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#7eaa57]" />
+                Recent Deployments
+              </p>
+              <h3 className="font-display mt-2 text-2xl font-bold tracking-tight text-[#17352e] sm:text-3xl">
+                Featured Rooftop Installations
+              </h3>
+            </div>
+            <p className="max-w-md text-xs leading-5 text-[#6f887b] sm:text-sm">
+              Custom-engineered for Kerala&apos;s pitched tile roofs, coastal conditions, and maximum PM Surya Ghar solar yields.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Project 1: Sunset Luxury Villa with Storage */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#d6e0d2] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+            >
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#17352e]">
+                <img
+                  src="/images/solar-home-sunset.jpg"
+                  alt="Modern Solar Residence with Battery Storage"
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <span className="absolute left-3.5 top-3.5 rounded-full border border-white/20 bg-black/40 px-2.5 py-1 text-[10px] font-semibold text-[#efffd7] backdrop-blur-md">
+                  Kochi, Kerala
+                </span>
+                <span className="absolute bottom-3.5 left-3.5 rounded-full bg-[#d6f36a] px-2.5 py-0.5 text-[10px] font-bold text-[#07241e]">
+                  8.5 kW + Battery Backup
+                </span>
+              </div>
+              <div className="flex flex-1 flex-col justify-between p-5">
+                <div>
+                  <h4 className="font-display text-base font-bold text-[#17352e]">
+                    Smart Hybrid Solar Villa
+                  </h4>
+                  <p className="mt-1.5 text-xs leading-relaxed text-[#688176]">
+                    Zero-downtime micro-inverter architecture with 10 kWh lithium storage for uninterrupted power through outages.
+                  </p>
+                </div>
+                <div className="mt-4 flex items-center justify-between border-t border-[#e5ecde] pt-3 text-[11px] font-semibold text-[#3b715b]">
+                  <span>₹82,000/yr Saved</span>
+                  <span className="text-[#6f887b]">Mono PERC Bifacial</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Project 2: Tropical Kerala Villa */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.35, delay: 0.08, ease: "easeOut" }}
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#d6e0d2] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+            >
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#17352e]">
+                <img
+                  src="/images/kerala-solar-villa.jpg"
+                  alt="Tropical Kerala Sloped Roof Solar Residence"
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <span className="absolute left-3.5 top-3.5 rounded-full border border-white/20 bg-black/40 px-2.5 py-1 text-[10px] font-semibold text-[#efffd7] backdrop-blur-md">
+                  Kozhikode, Kerala
+                </span>
+                <span className="absolute bottom-3.5 left-3.5 rounded-full bg-[#d6f36a] px-2.5 py-0.5 text-[10px] font-bold text-[#07241e]">
+                  5.4 kW On-Grid
+                </span>
+              </div>
+              <div className="flex flex-1 flex-col justify-between p-5">
+                <div>
+                  <h4 className="font-display text-base font-bold text-[#17352e]">
+                    Tropical Sloped-Roof Solar
+                  </h4>
+                  <p className="mt-1.5 text-xs leading-relaxed text-[#688176]">
+                    Non-penetrative railless clamping mounted over terracotta tiles, generating 22+ units daily with KSEB net metering.
+                  </p>
+                </div>
+                <div className="mt-4 flex items-center justify-between border-t border-[#e5ecde] pt-3 text-[11px] font-semibold text-[#3b715b]">
+                  <span>₹56,000/yr Saved</span>
+                  <span className="text-[#6f887b]">TOPCon N-Type</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Project 3: Heritage Tiled Residence */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.35, delay: 0.16, ease: "easeOut" }}
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#d6e0d2] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:col-span-2 lg:col-span-1"
+            >
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#17352e]">
+                <img
+                  src="/images/kerala-traditional-solar-home.jpg"
+                  alt="Kerala Heritage Traditional Home with Solar Panels"
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <span className="absolute left-3.5 top-3.5 rounded-full border border-white/20 bg-black/40 px-2.5 py-1 text-[10px] font-semibold text-[#efffd7] backdrop-blur-md">
+                  Thrissur, Kerala
+                </span>
+                <span className="absolute bottom-3.5 left-3.5 rounded-full bg-[#d6f36a] px-2.5 py-0.5 text-[10px] font-bold text-[#07241e]">
+                  6.8 kW Zero-Leakage
+                </span>
+              </div>
+              <div className="flex flex-1 flex-col justify-between p-5">
+                <div>
+                  <h4 className="font-display text-base font-bold text-[#17352e]">
+                    Heritage Architecture Rooftop
+                  </h4>
+                  <p className="mt-1.5 text-xs leading-relaxed text-[#688176]">
+                    Preserving traditional Kerala facade aesthetics while delivering 92% electricity bill reduction under Surya Ghar subsidy.
+                  </p>
+                </div>
+                <div className="mt-4 flex items-center justify-between border-t border-[#e5ecde] pt-3 text-[11px] font-semibold text-[#3b715b]">
+                  <span>₹68,000/yr Saved</span>
+                  <span className="text-[#6f887b]">Tier-1 High Yield</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}

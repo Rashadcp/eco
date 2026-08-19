@@ -95,26 +95,36 @@ export default function ProductsPage() {
             </div>
           </div>
 
-          <div className="relative flex flex-col justify-between overflow-hidden rounded-[2rem] border border-[#cbdac6] bg-[#17352e] p-7 shadow-[0_24px_58px_rgba(23,53,46,0.14)] sm:p-9">
-            <div className="absolute -right-10 -top-10 h-48 w-48 rounded-full bg-[#d9ef9a]/15 blur-2xl" />
-            <div className="relative flex h-full flex-col justify-between gap-6">
+          <div className="group relative flex min-h-[380px] flex-col justify-between overflow-hidden rounded-[2rem] border border-[#cbdac6] bg-[#17352e] p-7 shadow-[0_24px_58px_rgba(23,53,46,0.14)] sm:min-h-[440px] sm:p-9">
+            <img
+              src="/images/solar-home-sunset.jpg"
+              alt="Modern Solar Residence with Battery Storage and Tier-1 PV Modules"
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#07241e]/95 via-[#07241e]/50 to-black/30" />
+
+            <div className="relative z-10 flex h-full flex-col justify-between gap-6">
               <div className="flex items-center justify-between">
-                <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#cfe0cb]">
-                  Tier-1 Standard
+                <span className="rounded-full border border-white/20 bg-black/40 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#d6f36a] backdrop-blur-md">
+                  Tier-1 Architecture
                 </span>
-                <ShieldCheck className="h-5 w-5 text-[#d9ef9a]" strokeWidth={1.8} />
+                <span className="flex items-center gap-1.5 rounded-full border border-white/20 bg-black/40 px-3 py-1 text-[10px] font-semibold text-white backdrop-blur-md">
+                  <ShieldCheck className="h-4 w-4 text-[#d6f36a]" />
+                  25-Yr Performance
+                </span>
               </div>
-              <blockquote className="text-2xl font-medium leading-tight tracking-[-0.035em] text-[#f4f9df] sm:text-3xl">
-                “Every solar panel we mount carries an unconditional 25-year linear performance guarantee.”
+              <blockquote className="text-xl font-medium leading-tight tracking-[-0.035em] text-[#f4f9df] sm:text-2xl">
+                “Every solar panel and battery system we commission carries an unconditional 25-year linear performance guarantee.”
               </blockquote>
-              <div className="grid grid-cols-2 gap-4 border-t border-white/10 pt-5 text-xs text-[#aac1b0]">
+              <div className="grid grid-cols-2 gap-4 rounded-xl border border-white/15 bg-black/40 p-4 backdrop-blur-md text-xs text-[#efffd7]">
                 <div>
-                  <span className="block text-lg font-bold text-white">21.8%+</span>
-                  <span className="text-[10px] uppercase tracking-wider text-[#91b46d]">Cell Efficiency</span>
+                  <span className="block text-lg font-bold text-[#d6f36a]">21.8%+</span>
+                  <span className="text-[10px] uppercase tracking-wider text-white/80">Cell Efficiency</span>
                 </div>
                 <div>
-                  <span className="block text-lg font-bold text-white">100%</span>
-                  <span className="text-[10px] uppercase tracking-wider text-[#91b46d]">KSEB Approved</span>
+                  <span className="block text-lg font-bold text-[#d6f36a]">100%</span>
+                  <span className="text-[10px] uppercase tracking-wider text-white/80">KSEB Approved</span>
                 </div>
               </div>
             </div>
