@@ -294,10 +294,10 @@ export function ProcessWorkflow({ onScrollToContact }: ProcessWorkflowProps) {
     <div
       ref={containerRef}
       id="process"
-      className="relative h-[380vh] sm:h-[440vh] bg-[#f7f8f1]"
+      className="relative h-[180vh] sm:h-[220vh] bg-[#f7f8f1]"
     >
       {/* Sticky Window Container pinned to screen while scrolling through the 4 phases */}
-      <div className="sticky top-0 flex h-screen w-full flex-col justify-center overflow-hidden border-y border-[#dce4d6] py-8 sm:py-12">
+      <div className="sticky top-0 flex min-h-screen sm:h-screen w-full flex-col justify-center overflow-hidden border-y border-[#dce4d6] py-6 sm:py-8">
         {/* Subtle Background Pattern & Ambient Lighting */}
         <div className="pointer-events-none absolute inset-0 opacity-35 [background-image:linear-gradient(rgba(19,50,43,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(19,50,43,0.035)_1px,transparent_1px)] [background-size:44px_44px]" />
         <div className="pointer-events-none absolute -left-28 top-1/4 h-96 w-96 rounded-full bg-[#b4e67e]/25 blur-[120px]" />
