@@ -151,25 +151,25 @@ function ScrollStepCard({
         transformOrigin: "bottom center",
         transformStyle: "preserve-3d",
       }}
-      className="absolute inset-0 flex flex-col justify-between overflow-hidden rounded-[2rem] border border-white/20 bg-gradient-to-br from-[#0b2720] via-[#103b30] to-[#071b15] p-7 text-[#eef7df] shadow-[0_24px_60px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.2)] backdrop-blur-2xl transition-shadow select-none will-change-transform sm:p-8"
+      className="absolute inset-0 flex flex-col justify-between overflow-hidden rounded-[2rem] border border-white/20 bg-gradient-to-br from-[#0b2720] via-[#103b30] to-[#071b15] p-5 sm:p-7 lg:p-8 text-[#eef7df] shadow-[0_24px_60px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.2)] backdrop-blur-2xl transition-shadow select-none will-change-transform"
     >
       {/* Ambient Inner Lighting */}
       <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#b4e67e]/15 blur-2xl" />
 
       {/* Top Meta: Phase badge & Icon */}
       <div className="relative z-10">
-        <div className="flex items-center justify-between pb-4 sm:pb-5">
-          <span className="rounded-full border border-[#b4e67e]/30 bg-[#b4e67e]/15 px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-[#d6ef9a]">
+        <div className="flex items-center justify-between pb-3 sm:pb-5">
+          <span className="rounded-full border border-[#b4e67e]/30 bg-[#b4e67e]/15 px-3 py-0.5 sm:px-3.5 sm:py-1 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#d6ef9a]">
             Phase {step.number} of 04
           </span>
 
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/15 bg-white/10 text-[#b4e67e] shadow-sm">
-            <Icon className="h-5 w-5" strokeWidth={2} />
+          <div className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-2xl border border-white/15 bg-white/10 text-[#b4e67e] shadow-sm">
+            <Icon className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={2} />
           </div>
         </div>
 
         {/* Step Title */}
-        <h3 className="font-display text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-white leading-snug">
+        <h3 className="font-display text-lg sm:text-2xl lg:text-3xl font-bold tracking-tight text-white leading-snug">
           {step.title}
         </h3>
 
@@ -307,8 +307,8 @@ export function ProcessWorkflow({ onScrollToContact }: ProcessWorkflowProps) {
           {/* Main Grid: Left Narrative + Right Scroll-Driven 3D Cards */}
           <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
             
-            {/* Left Column: Header, Narrative & Active Phase Scrubber */}
-            <div className="max-w-xl">
+            {/* Left Column: Header, Narrative & Active Phase Scrubber (Desktop) */}
+            <div className="max-w-xl text-center lg:text-left">
               <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#13322b]/15 bg-white/80 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#3d6255] shadow-xs backdrop-blur-sm">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#13322b] animate-pulse" />
                 Interactive Journey • Scroll to explore
@@ -316,17 +316,31 @@ export function ProcessWorkflow({ onScrollToContact }: ProcessWorkflowProps) {
 
               <h2
                 id="process-title"
-                className="font-display text-3xl font-bold tracking-tight text-[#13322b] sm:text-4xl lg:text-5xl leading-[1.1]"
+                className="font-display text-2xl font-bold tracking-tight text-[#13322b] sm:text-4xl lg:text-5xl leading-[1.1]"
               >
                 From first idea to <span className="text-[#174a40]">clean power.</span>
               </h2>
 
-              <p className="mt-3 text-sm leading-relaxed text-[#516b60] sm:text-base font-sans">
+              <p className="mt-2 text-xs leading-relaxed text-[#516b60] sm:text-sm lg:text-base font-sans max-w-lg mx-auto lg:mx-0">
                 A transparent 4-step transition engineered for zero hassle, maximum government subsidy, and peak solar yields.
               </p>
 
-              {/* Scroll-Linked Phase List */}
-              <div className="relative mt-6 space-y-2 pl-6 sm:pl-7">
+              {/* Mobile Phase Pill Scrubber (< lg) */}
+              <div className="mt-4 flex items-center justify-center gap-1.5 lg:hidden">
+                {PROCESS_STEPS.map((step, idx) => (
+                  <button
+                    key={step.number}
+                    type="button"
+                    onClick={() => scrollToPhase(idx)}
+                    className="flex items-center gap-1 rounded-full border border-[#dce5d8] bg-white/90 px-2.5 py-1 text-[10px] font-bold text-[#13322b] shadow-xs"
+                  >
+                    <span>Phase {step.number}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Desktop Scroll-Linked Phase List (lg+) */}
+              <div className="relative mt-6 hidden space-y-2 pl-6 sm:pl-7 lg:block">
                 {/* Vertical Scroll Energy Line Track */}
                 <div className="absolute left-2.5 top-2 bottom-2 w-0.5 bg-[#dbe4d4] rounded-full">
                   <motion.div
@@ -347,8 +361,8 @@ export function ProcessWorkflow({ onScrollToContact }: ProcessWorkflowProps) {
                 ))}
               </div>
 
-              {/* CTA & Scroll Instruction */}
-              <div className="mt-6 flex flex-wrap items-center gap-4 pl-6 sm:pl-7">
+              {/* Desktop CTA & Scroll Instruction */}
+              <div className="mt-6 hidden lg:flex flex-wrap items-center gap-4 pl-6 sm:pl-7">
                 <button
                   type="button"
                   onClick={onScrollToContact}
@@ -365,8 +379,8 @@ export function ProcessWorkflow({ onScrollToContact }: ProcessWorkflowProps) {
               </div>
             </div>
 
-            {/* Right Column: Scroll-Driven 3D Card Stack */}
-            <div className="relative flex h-[380px] sm:h-[420px] w-full max-w-[420px] items-center justify-center mx-auto lg:mx-0 lg:ml-auto [perspective:1200px]">
+            {/* Right Column: Scroll-Driven 3D Card Stack (Centered on both Mobile & Desktop) */}
+            <div className="relative flex h-[330px] sm:h-[380px] lg:h-[420px] w-full max-w-[340px] sm:max-w-[400px] lg:max-w-[420px] items-center justify-center mx-auto lg:ml-auto [perspective:1200px]">
               {PROCESS_STEPS.map((step, idx) => (
                 <ScrollStepCard
                   key={step.number}
@@ -381,7 +395,7 @@ export function ProcessWorkflow({ onScrollToContact }: ProcessWorkflowProps) {
           </div>
 
           {/* Bottom Turnkey Guarantee Strip */}
-          <div className="mt-8 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[#dce5d8] bg-white/70 px-6 py-3 backdrop-blur-sm text-xs font-medium text-[#496b5b]">
+          <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-between gap-3 sm:gap-4 rounded-2xl border border-[#dce5d8] bg-white/80 px-4 sm:px-6 py-2.5 sm:py-3 backdrop-blur-sm text-[11px] sm:text-xs font-medium text-[#496b5b]">
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-[#7eaa57] animate-pulse" />
               <span>
