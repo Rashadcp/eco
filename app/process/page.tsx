@@ -63,7 +63,7 @@ export default function ProcessPage() {
               <span className="h-px w-9 bg-[#a6c66d]" />
               The Ennerty process
             </p>
-            <h1 className="max-w-xl text-4xl font-bold leading-[1.08] tracking-[-0.035em] text-[#17352e] sm:text-5xl lg:text-6xl">
+            <h1 className="max-w-xl text-4xl font-bold leading-[1.12] tracking-tight text-[#17352e] sm:text-5xl lg:text-6xl">
               From first idea to everyday power.
             </h1>
             <p className="mt-8 max-w-xl text-base leading-8 text-[#6b8178] sm:text-lg">

@@ -3,6 +3,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { BrandGlowRibbon } from "@/components/sections/BrandGlowRibbon";
 import { ProcessWorkflow } from "@/components/sections/ProcessWorkflow";
 import { PartnerBanner } from "@/components/sections/PartnerBanner";
 import { MetricSwitcher } from "@/components/sections/MetricSwitcher";
@@ -27,6 +28,8 @@ export default function Home() {
         onScrollToContact={handleRouteToContact}
         onScrollToImpact={handleRouteToImpact}
       />
+
+      <BrandGlowRibbon />
 
       <ProcessWorkflow onScrollToContact={handleRouteToContact} />
 

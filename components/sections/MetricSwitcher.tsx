@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Sun, TrendingUp } from "lucide-react";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Sun, TrendingUp, Sparkles, Activity, CheckCircle2 } from "lucide-react";
 import { METRIC_MODES } from "@/data/content";
 
 type MetricMode = "mode1" | "mode2";
@@ -16,6 +16,58 @@ const tabs: Array<{
   { id: "mode2", label: "Capacity & yield", icon: TrendingUp },
 ];
 
+/**
+ * Animated number counter component that handles currency, commas, decimals, and custom suffixes.
+ */
+function AnimatedCounter({ value }: { value: string }) {
+  const match = value.match(/^([^0-9.]*)([0-9,.]+)(.*)$/);
+  const [displayValue, setDisplayValue] = useState(0);
+
+  if (!match) return <span>{value}</span>;
+
+  const prefix = match[1];
+  const numStr = match[2].replace(/,/g, "");
+  const suffix = match[3];
+  const target = parseFloat(numStr);
+  const isFloat = numStr.includes(".");
+  const decimals = isFloat ? numStr.split(".")[1].length : 0;
+  const isThousands = match[2].includes(",");
+
+  useEffect(() => {
+    let animationFrameId: number;
+    const duration = 1200; // ms
+    const startTime = performance.now();
+
+    const animate = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease out cubic for crisp, organic deceleration
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      const current = target * easeOut;
+      setDisplayValue(current);
+
+      if (progress < 1) {
+        animationFrameId = requestAnimationFrame(animate);
+      }
+    };
+
+    animationFrameId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [target, value]);
+
+  const formattedNum = isThousands
+    ? Math.round(displayValue).toLocaleString("en-IN")
+    : displayValue.toFixed(decimals);
+
+  return (
+    <span className="tabular-nums">
+      {prefix}
+      {formattedNum}
+      {suffix}
+    </span>
+  );
+}
+
 export function MetricSwitcher() {
   const [currentMode, setCurrentMode] = useState<MetricMode>("mode1");
   const data = METRIC_MODES[currentMode];
@@ -26,32 +78,56 @@ export function MetricSwitcher() {
       aria-labelledby="metrics-title"
       className="relative overflow-hidden bg-[#f7f8f1] py-20 text-[#17352e] sm:py-28"
     >
-      <div className="pointer-events-none absolute inset-0 opacity-50 [background-image:linear-gradient(rgba(23,53,46,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(23,53,46,0.035)_1px,transparent_1px)] [background-size:44px_44px]" />
-      <div className="pointer-events-none absolute -right-28 top-20 h-72 w-72 rounded-full bg-[#d9ef9a]/30 blur-3xl" />
+      {/* Background Grids & Ambient Lighting */}
+      <div className="pointer-events-none absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(23,53,46,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(23,53,46,0.035)_1px,transparent_1px)] [background-size:44px_44px]" />
+      <div className="pointer-events-none absolute -right-28 top-20 h-80 w-80 rounded-full bg-[#d9ef9a]/35 blur-[120px]" />
+      <div className="pointer-events-none absolute -left-28 bottom-10 h-72 w-72 rounded-full bg-[#13322b]/10 blur-[100px]" />
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
-        <div className="grid items-end gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-          <header className="max-w-md">
-            <p className="mb-5 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#578172]">
-              <span className="h-px w-8 bg-[#a6c66d]" />
-              The numbers behind the shift
-            </p>
+        <div className="grid items-end gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+          
+          {/* Header Narrative */}
+          <motion.header
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="max-w-md"
+          >
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#17352e]/15 bg-white/80 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#3d6255] shadow-xs backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#7eaa57] animate-pulse" />
+              Verified Performance
+            </div>
+
             <h2
               id="metrics-title"
-              className="font-display max-w-md text-3xl font-bold leading-tight tracking-tight text-[#17352e] sm:text-4xl lg:text-5xl"
+              className="font-display text-3xl font-bold leading-tight tracking-tight text-[#17352e] sm:text-4xl lg:text-5xl"
             >
-              Small changes. Real momentum.
+              Small changes. <br className="hidden sm:block" />
+              <span className="text-[#13322b]">Real momentum.</span>
             </h2>
-            <p className="mt-6 max-w-sm text-sm leading-6 text-[#6b8178] sm:text-base font-sans">
-              Explore the progress our connected energy systems are creating across homes and communities.
-            </p>
-          </header>
 
+            <p className="mt-5 text-sm leading-relaxed text-[#516b60] sm:text-base font-sans">
+              Explore the real-world impact generated by connected rooftop solar systems across homes, villas, and commercial hubs in Kerala.
+            </p>
+
+            <div className="mt-6 flex items-center gap-4 text-xs font-semibold text-[#3d6255]">
+              <span className="inline-flex items-center gap-1.5">
+                <CheckCircle2 className="h-4 w-4 text-[#7eaa57]" /> KSEB Net-Metered
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <CheckCircle2 className="h-4 w-4 text-[#7eaa57]" /> PM Surya Ghar
+              </span>
+            </div>
+          </motion.header>
+
+          {/* Interactive Metric Controls & Display Cards */}
           <div className="font-sans">
+            {/* Sliding Pill Tab Switcher */}
             <div
               role="tablist"
               aria-label="Metric categories"
-              className="mb-5 flex w-full max-w-md rounded-xl border border-[#d6dfcf] bg-white/65 p-1 shadow-[0_8px_24px_rgba(23,53,46,0.04)] backdrop-blur-sm font-sans"
+              className="mb-5 flex w-full max-w-md rounded-2xl border border-[#d6dfcf] bg-white/70 p-1.5 shadow-[0_8px_24px_rgba(23,53,46,0.05)] backdrop-blur-md font-sans"
             >
               {tabs.map(({ id, label, icon: Icon }) => {
                 const active = currentMode === id;
@@ -72,43 +148,64 @@ export function MetricSwitcher() {
                       setCurrentMode(nextMode);
                       document.getElementById(`${nextMode}-tab`)?.focus();
                     }}
-                    className={`relative flex min-w-0 flex-1 items-center justify-center gap-2 rounded-lg px-3 py-3 text-xs font-semibold transition sm:text-sm font-sans ${
-                      active
-                        ? "bg-[#17352e] text-white shadow-[0_5px_14px_rgba(23,53,46,0.16)]"
-                        : "text-[#70847a] hover:bg-white hover:text-[#17352e]"
+                    className={`relative z-10 flex min-w-0 flex-1 items-center justify-center gap-2 rounded-xl px-4 py-3 text-xs font-semibold transition-colors duration-200 sm:text-sm font-sans cursor-pointer outline-none focus:outline-none ${
+                      active ? "text-white" : "text-[#5f7a6f] hover:text-[#17352e]"
                     }`}
                   >
-                    <Icon className="h-4 w-4 shrink-0" strokeWidth={1.8} />
+                    {active && (
+                      <motion.div
+                        layoutId="activeMetricTabPill"
+                        className="absolute inset-0 z-[-1] rounded-xl bg-[#13322b] shadow-[0_6px_18px_rgba(19,50,43,0.22)]"
+                        transition={{ type: "spring", stiffness: 450, damping: 35 }}
+                      />
+                    )}
+                    <Icon
+                      className={`h-4 w-4 shrink-0 transition-transform duration-200 ${
+                        active ? "text-[#b4e67e] scale-110" : "text-[#70847a]"
+                      }`}
+                      strokeWidth={2}
+                    />
                     <span className="truncate">{label}</span>
                   </button>
                 );
               })}
             </div>
 
-            <motion.div
-              key={currentMode}
-              id={`${currentMode}-panel`}
-              role="tabpanel"
-              aria-labelledby={`${currentMode}-tab`}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.22, ease: "easeOut" }}
-              className="grid gap-4 sm:grid-cols-2 font-sans"
-            >
-              <MetricCard
-                label={data.card1.label}
-                value={data.card1.value}
-                trend={data.card1.trend}
-                subtext={data.card1.subtext}
-                featured
-              />
-              <MetricCard
-                label={data.card2.label}
-                value={data.card2.value}
-                trend={data.card2.trend}
-                subtext={data.card2.subtext}
-              />
-            </motion.div>
+            {/* Metric Cards Grid with AnimatePresence */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentMode}
+                id={`${currentMode}-panel`}
+                role="tabpanel"
+                aria-labelledby={`${currentMode}-tab`}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: {
+                    opacity: 1,
+                    transition: { staggerChildren: 0.12 },
+                  },
+                  exit: { opacity: 0, transition: { duration: 0.15 } },
+                }}
+                className="grid gap-4 sm:grid-cols-2 font-sans"
+              >
+                <MetricCard
+                  label={data.card1.label}
+                  value={data.card1.value}
+                  trend={data.card1.trend}
+                  subtext={data.card1.subtext}
+                  featured
+                />
+                <MetricCard
+                  label={data.card2.label}
+                  value={data.card2.value}
+                  trend={data.card2.trend}
+                  subtext={data.card2.subtext}
+                />
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </div>
@@ -131,57 +228,106 @@ function MetricCard({
   subtext,
   featured = false,
 }: MetricCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const glowRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current || !glowRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    glowRef.current.style.opacity = "1";
+    glowRef.current.style.background = featured
+      ? `radial-gradient(350px circle at ${x}px ${y}px, rgba(180, 230, 126, 0.18), transparent 70%)`
+      : `radial-gradient(350px circle at ${x}px ${y}px, rgba(180, 230, 126, 0.25), transparent 70%)`;
+  };
+
+  const handleMouseLeave = () => {
+    if (glowRef.current) {
+      glowRef.current.style.opacity = "0";
+    }
+  };
+
   return (
-    <article
-      className={`group relative overflow-hidden rounded-2xl border p-6 transition duration-300 sm:p-8 font-sans ${
+    <motion.article
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      variants={{
+        hidden: { opacity: 0, y: 16, scale: 0.98 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          transition: { type: "spring", stiffness: 350, damping: 28 },
+        },
+      }}
+      whileHover={{ y: -3, transition: { duration: 0.2 } }}
+      className={`group relative overflow-hidden rounded-3xl border p-6 transition-all duration-300 sm:p-8 font-sans will-change-transform ${
         featured
-          ? "border-[#17352e] bg-[#17352e] text-white shadow-[0_18px_38px_rgba(23,53,46,0.15)]"
-          : "border-[#d6dfcf] bg-white/80 text-[#17352e] hover:-translate-y-0.5 hover:border-[#a8c188] hover:shadow-[0_14px_30px_rgba(23,53,46,0.08)]"
+          ? "border-white/15 bg-gradient-to-br from-[#0e2c24] via-[#133c31] to-[#0a1f19] text-white shadow-[0_20px_45px_rgba(14,44,36,0.3),inset_0_1px_0_rgba(255,255,255,0.15)]"
+          : "border-[#d8e2d2] bg-white/80 text-[#17352e] shadow-[0_10px_30px_rgba(23,53,46,0.04)] hover:border-[#a8c188] hover:bg-white hover:shadow-[0_16px_36px_rgba(23,53,46,0.08)]"
       }`}
     >
+      {/* Interactive Cursor Spotlight Glow (DOM-optimized) */}
       <div
-        className={`pointer-events-none absolute -right-10 -top-12 h-32 w-32 rounded-full blur-2xl transition duration-300 group-hover:scale-125 ${
-          featured ? "bg-[#d9ef9a]/20" : "bg-[#d9ef9a]/30"
+        ref={glowRef}
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 will-change-[background,opacity]"
+      />
+
+      {/* Subtle Static Ambient Corner Glow */}
+      <div
+        className={`pointer-events-none absolute -right-10 -top-12 h-36 w-36 rounded-full blur-2xl transition duration-500 group-hover:scale-125 ${
+          featured ? "bg-[#b4e67e]/20" : "bg-[#d9ef9a]/40"
         }`}
       />
 
-      <div className="relative flex min-h-[178px] flex-col justify-between">
-        <div className="flex items-start justify-between gap-4">
+      <div className="relative z-10 flex min-h-[190px] flex-col justify-between">
+        {/* Top Meta Row */}
+        <div className="flex items-start justify-between gap-3">
           <span
-            className={`text-[10px] font-semibold uppercase tracking-[0.2em] font-sans ${
-              featured ? "text-[#b9d28a]" : "text-[#648878]"
+            className={`min-w-0 flex-1 text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.16em] leading-snug font-sans ${
+              featured ? "text-[#c2df94]" : "text-[#597e6e]"
             }`}
           >
             {label}
           </span>
-          <span
-            className={`shrink-0 rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wide font-sans ${
+
+          {/* Bouncy Pop Trend Badge */}
+          <motion.span
+            initial={{ scale: 0.85, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.1, type: "spring", stiffness: 400, damping: 25 }}
+            className={`shrink-0 inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wide whitespace-nowrap font-sans ${
               featured
-                ? "bg-[#d9ef9a]/15 text-[#d9ef9a]"
-                : "border border-[#d6e4c7] bg-[#edf6dd] text-[#57783f]"
+                ? "border border-[#b4e67e]/30 bg-[#b4e67e]/15 text-[#d6ef9a] shadow-xs"
+                : "border border-[#d0e0c0] bg-[#eef7dd] text-[#4d7237]"
             }`}
           >
+            {featured && <Activity className="h-3 w-3 text-[#b4e67e] animate-pulse" />}
             {trend}
-          </span>
+          </motion.span>
         </div>
 
+        {/* Big Animated Numeric Value */}
         <div
-          className={`font-display mt-7 text-4xl font-bold tracking-tight transition duration-300 sm:text-5xl ${
-            featured ? "text-[#f4f9df]" : "text-[#17352e] group-hover:text-[#3a7968]"
+          className={`font-display mt-6 text-4xl font-bold tracking-tight transition-colors duration-300 sm:text-5xl lg:text-5xl ${
+            featured ? "text-[#f5fbeb]" : "text-[#13322b] group-hover:text-[#1e4d40]"
           }`}
         >
-          {value}
+          <AnimatedCounter value={value} />
         </div>
 
+        {/* Bottom Subtext */}
         <div
-          className={`mt-6 border-t pt-4 text-xs leading-5 ${
-            featured ? "border-white/15 text-[#b8cbc0]" : "border-[#e4eadf] text-[#71877d]"
+          className={`mt-6 border-t pt-4 text-xs leading-5 font-sans ${
+            featured ? "border-white/15 text-[#b0c8bb]" : "border-[#e5ede0] text-[#6b8579]"
           }`}
         >
           {subtext}
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }
 

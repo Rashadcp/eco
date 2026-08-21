@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Outfit, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { FloatingWhatsApp } from "@/components/ui/FloatingWhatsApp";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -71,6 +72,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <FloatingWhatsApp />
       </body>
     </html>
   );

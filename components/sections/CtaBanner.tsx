@@ -30,13 +30,13 @@ export function CtaBanner({ onScrollToContact }: CtaBannerProps) {
           <div className="relative z-10">
             <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#b9d28a]">
               <span className="h-px w-8 bg-[#7eaa57]" />
-              A clearer way to switch
+              PM Surya Ghar Yojana • Kerala Solar
             </p>
-            <h2 className="mt-7 max-w-xl text-3xl font-bold leading-[1.1] tracking-tight text-[#f4f9df] sm:text-4xl lg:text-5xl">
-              Your next energy decision can start here.
+            <h2 className="mt-7 max-w-xl text-3xl font-bold leading-[1.12] tracking-tight text-[#f4f9df] sm:text-4xl lg:text-5xl">
+              Ready to zero your monthly KSEB bill?
             </h2>
             <p className="mt-6 max-w-xl text-sm leading-7 text-[#b8cbc0] sm:text-base">
-              Get a thoughtful rooftop assessment, a system designed around your property, and a clear view of what comes next.
+              Get a free rooftop solar survey across Kerala. We design custom systems with Tier-1 panels, handle 100% KSEB net metering paperwork, and claim up to ₹78,000 government subsidy for you.
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -47,14 +47,14 @@ export function CtaBanner({ onScrollToContact }: CtaBannerProps) {
                 rightIcon={<ArrowRight className="h-4 w-4 text-[#17352e]" strokeWidth={1.8} />}
                 className="justify-center bg-[#d9ef9a] px-6 py-3.5 text-sm font-bold text-[#17352e] shadow-[0_10px_24px_rgba(140,178,92,0.2)] hover:bg-[#e7f6b7]"
               >
-                Request a free assessment
+                Book Free Site Survey
               </Button>
               <a
                 href={`tel:${COMPANY_DETAILS.phone}`}
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-3.5 text-sm font-semibold text-[#e5f0df] transition hover:border-[#b9d28a]/60 hover:bg-white/10 hover:text-white outline-none focus:outline-none"
               >
                 <Phone className="h-4 w-4 text-[#d9ef9a]" strokeWidth={1.8} />
-                Call our team
+                Call +91 97465 39631
               </a>
             </div>
 
@@ -71,105 +71,41 @@ export function CtaBanner({ onScrollToContact }: CtaBannerProps) {
           </div>
         </div>
 
-        <div className="relative min-h-[300px] overflow-hidden bg-[#e8f0df] p-7 sm:min-h-[360px] sm:p-10 lg:min-h-full">
-          <div className="absolute -right-10 -top-10 h-52 w-52 rounded-full bg-[#d9ef9a]/65 blur-2xl" />
-          <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-[#4b9180]/15 blur-3xl" />
-          <div className="absolute inset-0 opacity-45 [background-image:linear-gradient(rgba(23,53,46,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(23,53,46,0.07)_1px,transparent_1px)] [background-size:34px_34px]" />
+        <div className="group relative flex min-h-[360px] flex-col justify-between overflow-hidden bg-[#17352e] p-7 sm:min-h-[420px] sm:p-9 lg:min-h-full">
+          {/* Real High-Resolution Solar Installation Photograph */}
+          <img
+            src="/images/solar-rooftop-installer.jpg"
+            alt="Certified Ennerty Technician Installing Tier-1 Solar Panels on Tiled Rooftop"
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+          />
+          {/* Elegant Gradient Protection Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#09221b]/95 via-[#09221b]/40 to-black/30" />
 
-          <div className="relative flex h-full min-h-[250px] flex-col justify-between">
-            <div className="flex items-center justify-between">
-              <span className="rounded-full border border-[#9fbd91] bg-[#f7f8f1]/70 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#537362]">
-                Roof to grid
-              </span>
-              <span className="h-2.5 w-2.5 rounded-full bg-[#7eaa57] shadow-[0_0_0_6px_rgba(126,170,87,0.16)]" />
-            </div>
+          {/* Top Meta Badges */}
+          <div className="relative z-10 flex items-center justify-between">
+            <span className="rounded-full border border-white/20 bg-black/40 px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#d6f36a] backdrop-blur-md">
+              Roof to grid
+            </span>
+            <span className="flex items-center gap-1.5 rounded-full border border-white/15 bg-black/40 px-2.5 py-1 text-[10px] font-semibold text-white backdrop-blur-md">
+              <span className="h-2 w-2 rounded-full bg-[#d6f36a] animate-pulse" />
+              Certified EPC Install
+            </span>
+          </div>
 
-            {/* Precision Architectural Solar Illustration */}
-            <div className="relative mx-auto flex h-48 w-full max-w-[320px] items-center justify-center">
-              <svg
-                viewBox="0 0 320 200"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-full w-full drop-shadow-[0_12px_24px_rgba(23,53,46,0.12)]"
-              >
-                <defs>
-                  <radialGradient id="ctaSunGlow" cx="0.5" cy="0.5" r="0.5">
-                    <stop offset="0%" stopColor="#fef08a" stopOpacity="0.9" />
-                    <stop offset="45%" stopColor="#f59e0b" stopOpacity="0.75" />
-                    <stop offset="100%" stopColor="#d97706" stopOpacity="0" />
-                  </radialGradient>
-                  <linearGradient id="ctaSolarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#0284c7" />
-                    <stop offset="50%" stopColor="#0369a1" />
-                    <stop offset="100%" stopColor="#075985" />
-                  </linearGradient>
-                  <linearGradient id="ctaHouseGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#17352e" />
-                    <stop offset="100%" stopColor="#0c1f1b" />
-                  </linearGradient>
-                  <linearGradient id="ctaRoofGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#244e43" />
-                    <stop offset="100%" stopColor="#15362e" />
-                  </linearGradient>
-                </defs>
-
-                {/* Ambient Sun Corona */}
-                <circle cx="160" cy="38" r="42" fill="url(#ctaSunGlow)" opacity="0.35" />
-                <circle cx="160" cy="38" r="26" fill="url(#ctaSunGlow)" opacity="0.6" />
-
-                {/* Sun Core */}
-                <circle cx="160" cy="38" r="15" fill="#fde047" />
-                <circle cx="160" cy="38" r="15" stroke="#f59e0b" strokeWidth="1.5" />
-                <circle cx="160" cy="38" r="21" stroke="#d9ef9a" strokeWidth="1" strokeDasharray="3 4" opacity="0.7" />
-
-                {/* Solar Light Rays */}
-                <path d="M142 54 L118 82" stroke="#eab308" strokeWidth="1.2" strokeDasharray="2 3" opacity="0.65" />
-                <path d="M160 58 L160 84" stroke="#eab308" strokeWidth="1.2" strokeDasharray="2 3" opacity="0.65" />
-                <path d="M178 54 L202 82" stroke="#eab308" strokeWidth="1.2" strokeDasharray="2 3" opacity="0.65" />
-
-                {/* House Base Structure */}
-                <rect x="95" y="118" width="130" height="62" rx="4" fill="url(#ctaHouseGrad)" stroke="#2b594b" strokeWidth="1.5" />
-
-                {/* Large Architectural Window */}
-                <rect x="110" y="130" width="38" height="34" rx="2" fill="#d9ef9a" fillOpacity="0.25" stroke="#7eaa57" strokeWidth="1" />
-                <line x1="129" y1="130" x2="129" y2="164" stroke="#17352e" strokeWidth="1" />
-                <line x1="110" y1="147" x2="148" y2="147" stroke="#17352e" strokeWidth="1" />
-
-                {/* Modern Doorway */}
-                <rect x="175" y="134" width="28" height="46" rx="2" fill="#0d241f" stroke="#3d6c5d" strokeWidth="1" />
-                <circle cx="179" cy="158" r="1.5" fill="#d9ef9a" />
-
-                {/* Angled Roof Gable */}
-                <polygon points="160,78 72,118 248,118" fill="url(#ctaRoofGrad)" stroke="#3d6c5d" strokeWidth="1.5" />
-
-                {/* Photovoltaic Solar Panel Array on Left Slanted Roof */}
-                <polygon points="152,85 96,110 120,110 156,85" fill="url(#ctaSolarGrad)" stroke="#38bdf8" strokeWidth="1.2" />
-                <line x1="108" y1="110" x2="154" y2="85" stroke="#bae6fd" strokeWidth="0.75" opacity="0.8" />
-                <line x1="102" y1="98" x2="132" y2="98" stroke="#bae6fd" strokeWidth="0.75" opacity="0.8" />
-
-                {/* Photovoltaic Solar Panel Array on Right Slanted Roof */}
-                <polygon points="168,85 164,85 200,110 224,110" fill="url(#ctaSolarGrad)" stroke="#38bdf8" strokeWidth="1.2" />
-                <line x1="166" y1="85" x2="212" y2="110" stroke="#bae6fd" strokeWidth="0.75" opacity="0.8" />
-                <line x1="188" y1="98" x2="218" y2="98" stroke="#bae6fd" strokeWidth="0.75" opacity="0.8" />
-
-                {/* Energy Pulse Ring at Apex */}
-                <circle cx="160" cy="80" r="5" fill="#d9ef9a" />
-                <circle cx="160" cy="80" r="9" stroke="#d9ef9a" strokeWidth="1" strokeDasharray="2 2" opacity="0.8" />
-
-                {/* Ground Line & Eco Bush Accents */}
-                <line x1="50" y1="180" x2="270" y2="180" stroke="#9fbd91" strokeWidth="1.5" strokeLinecap="round" />
-                <circle cx="82" cy="180" r="8" fill="#7eaa57" fillOpacity="0.4" />
-                <circle cx="90" cy="180" r="6" fill="#5c8a40" fillOpacity="0.5" />
-                <circle cx="238" cy="180" r="7" fill="#7eaa57" fillOpacity="0.4" />
-              </svg>
-            </div>
-
+          {/* Bottom Card Caption */}
+          <div className="relative z-10 mt-auto rounded-2xl border border-white/15 bg-[#092922]/85 p-4.5 backdrop-blur-md shadow-lg sm:p-5">
             <div className="flex items-end justify-between gap-4">
               <div>
-                <p className="text-3xl font-semibold tracking-[-0.07em] text-[#17352e]">01</p>
-                <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#668775]">Start with a conversation</p>
+                <p className="text-3xl font-bold tracking-tight text-[#d6f36a]">01</p>
+                <p className="mt-1 text-[11px] font-bold uppercase tracking-[0.14em] text-white">
+                  Start with a conversation
+                </p>
               </div>
-              <p className="max-w-[130px] text-right text-xs leading-5 text-[#6b8178]">No pressure. Just a clearer view of your options.</p>
+              <p className="max-w-[150px] text-right text-xs leading-5 text-[#dce7df]">
+                No pressure. Just a clearer view of your options.
+              </p>
             </div>
           </div>
         </div>

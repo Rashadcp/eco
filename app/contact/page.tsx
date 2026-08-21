@@ -75,7 +75,7 @@ export default function ContactPage() {
               <span className="h-px w-9 bg-[#a6c66d]" />
               Let&apos;s connect
             </p>
-            <h1 className="max-w-xl text-4xl font-bold leading-[1.08] tracking-[-0.035em] sm:text-5xl lg:text-6xl">
+            <h1 className="max-w-xl text-4xl font-bold leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
               Your roof has a story to tell.
             </h1>
             <p className="mt-8 max-w-xl text-base leading-8 text-[#6b8178] sm:text-lg">
@@ -103,7 +103,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <p className="text-5xl font-bold leading-none tracking-tight text-[#d9ef9a] sm:text-6xl">01</p>
-                <p className="mt-5 max-w-xs text-2xl font-medium leading-tight tracking-[-0.04em] text-[#f4f9df] sm:text-3xl">
+                <p className="mt-5 max-w-xs text-2xl font-medium leading-snug tracking-tight text-[#f4f9df] sm:text-3xl">
                   A free conversation. No pressure. Clear next steps.
                 </p>
               </div>

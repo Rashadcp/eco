@@ -46,11 +46,11 @@ export default function AboutPage() {
               <span className="h-px w-9 bg-[#a6c66d]" />
               About Ennerty
             </p>
-            <h1 className="max-w-xl text-4xl font-bold leading-[1.08] tracking-[-0.035em] text-[#17352e] sm:text-5xl lg:text-6xl">
-              Energy that feels closer to home.
+            <h1 className="max-w-xl text-4xl font-bold leading-[1.12] tracking-tight text-[#17352e] sm:text-5xl lg:text-6xl">
+              Powering Kerala homes with clean solar energy.
             </h1>
             <p className="mt-8 max-w-xl text-base leading-8 text-[#6b8178] sm:text-lg">
-              Ennerty exists to make the switch to solar feel practical, personal, and genuinely worth it — for every roof, every bill, and every future plan.
+              Ennerty is the solar energy brand of EcoHarmony Enterprises Pvt. Ltd., based in Kalamassery, Kochi. We help homeowners, villas, and commercial enterprises cut their KSEB electricity bills with certified Tier-1 panels, PM Surya Ghar subsidy, and lifetime local support.
             </p>
             <button
               type="button"
@@ -68,16 +68,16 @@ export default function AboutPage() {
             <div className="relative flex h-full flex-col justify-between">
               <div className="flex items-center justify-between">
                 <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#cfe0cb]">
-                  Our point of view
+                  Our promise
                 </span>
                 <Zap className="h-5 w-5 text-[#d9ef9a]" strokeWidth={1.7} />
               </div>
-              <blockquote className="max-w-sm text-2xl font-medium leading-tight tracking-[-0.04em] text-[#f4f9df] sm:text-3xl">
-                “The best solar system is the one that quietly keeps working for you.”
+              <blockquote className="max-w-sm text-2xl font-medium leading-snug tracking-tight text-[#f4f9df] sm:text-3xl">
+                “The best solar system is the one that quietly cuts your power bill to zero every single month.”
               </blockquote>
               <div className="flex items-center gap-3 text-xs text-[#aac1b0]">
                 <span className="h-px w-8 bg-[#91b46d]" />
-                Practical power, thoughtfully delivered
+                Engineered for Kerala • 25-Year Linear Warranty
               </div>
             </div>
           </div>
@@ -124,7 +124,7 @@ export default function AboutPage() {
               <span className="h-px w-8 bg-[#a6c66d]" />
               Why we started
             </p>
-            <h2 className="max-w-xl text-3xl font-bold leading-[1.1] tracking-[-0.035em] sm:text-4xl lg:text-5xl">
+            <h2 className="max-w-xl text-3xl font-bold leading-[1.15] tracking-tight text-[#17352e] sm:text-4xl lg:text-5xl">
               Solar should be easier to understand.
             </h2>
             <div className="mt-7 max-w-xl space-y-5 text-sm leading-7 text-[#6b8178] sm:text-base">
@@ -137,15 +137,15 @@ export default function AboutPage() {
             </div>
             <div className="mt-9 grid grid-cols-3 gap-4 border-t border-[#d6e0d2] pt-6">
               <div>
-                <p className="text-2xl font-semibold tracking-[-0.06em] text-[#17352e]">25 yr</p>
+                <p className="text-2xl font-semibold tracking-tight text-[#17352e]">25 yr</p>
                 <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#789283]">Reliability focus</p>
               </div>
               <div>
-                <p className="text-2xl font-semibold tracking-[-0.06em] text-[#17352e]">1:1</p>
+                <p className="text-2xl font-semibold tracking-tight text-[#17352e]">1:1</p>
                 <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#789283]">Human guidance</p>
               </div>
               <div>
-                <p className="text-2xl font-semibold tracking-[-0.06em] text-[#17352e]">360°</p>
+                <p className="text-2xl font-semibold tracking-tight text-[#17352e]">360°</p>
                 <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#789283]">System care</p>
               </div>
             </div>

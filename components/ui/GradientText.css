@@ -1,0 +1,49 @@
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient-text {
+  position: relative;
+  margin: 0 auto;
+  display: inline-flex;
+  max-width: fit-content;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.animated-gradient-text.with-border {
+  border-radius: 1.25rem;
+  padding: 0.35rem 0.75rem;
+  backdrop-filter: blur(10px);
+}
+
+.text-content {
+  display: inline-block;
+  position: relative;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradientShift 6s linear infinite;
+  will-change: background-position;
+}
+
+.animated-gradient-text.pause-on-hover:hover .text-content {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-content {
+    animation: none;
+    background-position: 0% 50%;
+  }
+}

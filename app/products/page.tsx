@@ -77,7 +77,7 @@ export default function ProductsPage() {
               <span className="h-px w-9 bg-[#a6c66d]" />
               Products & Technology
             </p>
-            <h1 className="max-w-xl text-4xl font-bold leading-[1.08] tracking-[-0.035em] text-[#17352e] sm:text-5xl lg:text-6xl">
+            <h1 className="max-w-xl text-4xl font-bold leading-[1.12] tracking-tight text-[#17352e] sm:text-5xl lg:text-6xl">
               Hardware built for 25-year performance.
             </h1>
             <p className="mt-8 max-w-xl text-base leading-8 text-[#6b8178] sm:text-lg">
@@ -114,7 +114,7 @@ export default function ProductsPage() {
                   25-Yr Performance
                 </span>
               </div>
-              <blockquote className="text-xl font-medium leading-tight tracking-[-0.035em] text-[#f4f9df] sm:text-2xl">
+              <blockquote className="text-xl font-medium leading-snug tracking-tight text-[#f4f9df] sm:text-2xl">
                 “Every solar panel and battery system we commission carries an unconditional 25-year linear performance guarantee.”
               </blockquote>
               <div className="grid grid-cols-2 gap-4 rounded-xl border border-white/15 bg-black/40 p-4 backdrop-blur-md text-xs text-[#efffd7]">
@@ -141,7 +141,7 @@ export default function ProductsPage() {
                 <span className="h-px w-8 bg-[#a6c66d]" />
                 Integration by design
               </p>
-              <h2 className="text-3xl font-bold leading-[1.1] tracking-[-0.035em] text-[#17352e] sm:text-4xl lg:text-5xl">
+              <h2 className="text-3xl font-bold leading-[1.15] tracking-tight text-[#17352e] sm:text-4xl lg:text-5xl">
                 Precision engineering from cell to cloud.
               </h2>
               <p className="mt-6 text-sm leading-7 text-[#6b8178] sm:text-base">

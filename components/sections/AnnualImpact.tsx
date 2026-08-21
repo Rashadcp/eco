@@ -92,7 +92,7 @@ export function AnnualImpact({ onScrollToContact }: AnnualImpactProps) {
                         {stat.metricDetail}
                       </span>
                     </div>
-                    <p className="font-display mt-8 text-4xl font-semibold tracking-[-0.07em] text-[#17352e] sm:text-5xl">
+                    <p className="font-display mt-8 text-4xl font-semibold tracking-tight text-[#17352e] sm:text-5xl">
                       {stat.value}
                     </p>
                     <h3 className="font-display mt-2 text-sm font-semibold text-[#3d735c]">
