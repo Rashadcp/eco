@@ -349,6 +349,8 @@ export function ProcessWorkflow({ onScrollToContact }: ProcessWorkflowProps) {
                   />
                 </div>
 
+
+
                 {PROCESS_STEPS.map((step, idx) => (
                   <ScrollStepListItem
                     key={step.number}
