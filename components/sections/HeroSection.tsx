@@ -77,29 +77,29 @@ export function HeroSection({
         </div>
 
         {/* Layer 4: Main Content (Headline, Subtitle & CTA) */}
-        <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-14">
+        <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 sm:px-10 lg:px-14">
           <div className="max-w-3xl">
             
             {/* Main Headline */}
             <h1
               id="hero-title"
-              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-[-0.03em] text-white drop-shadow-md"
+              className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.12] sm:leading-[1.05] tracking-tight text-white drop-shadow-md"
             >
               Next-Generation <br />
               Solar Energy <span className="serif-italic-accent font-normal text-[#efffd7] drop-shadow-lg">Solutions</span>
             </h1>
 
             {/* Subtitle */}
-            <p className="mt-5 max-w-xl text-base sm:text-lg leading-relaxed text-white/95 drop-shadow-sm font-sans">
+            <p className="mt-3.5 sm:mt-5 max-w-xl text-xs sm:text-base md:text-lg leading-relaxed sm:leading-relaxed text-white/95 drop-shadow-sm font-sans">
               Power your home and business with Kerala&apos;s trusted rooftop solar systems. Cut up to 90% of your KSEB electricity bill with Tier-1 panels and PM Surya Ghar subsidy.
             </p>
 
             {/* Lime CTA Button */}
-            <div className="mt-8 flex items-center gap-4">
+            <div className="mt-5 sm:mt-8 flex items-center gap-4">
               <button
                 type="button"
                 onClick={onScrollToContact}
-                className="group inline-flex items-center gap-2 rounded-full bg-[#b4e67e] px-8 py-4 text-sm sm:text-base font-bold text-[#13322b] shadow-[0_10px_30px_rgba(180,230,126,0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#c4f092] hover:shadow-[0_15px_35px_rgba(180,230,126,0.45)] cursor-pointer outline-none focus:outline-none"
+                className="group inline-flex items-center gap-2 rounded-full bg-[#b4e67e] px-6 py-3.5 sm:px-8 sm:py-4 text-xs sm:text-base font-bold text-[#13322b] shadow-[0_10px_30px_rgba(180,230,126,0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#c4f092] hover:shadow-[0_15px_35px_rgba(180,230,126,0.45)] cursor-pointer outline-none focus:outline-none"
               >
                 <span>Get Free Solar Quote</span>
                 <Zap className="h-4 w-4 fill-current transition-transform duration-200 group-hover:scale-110" />

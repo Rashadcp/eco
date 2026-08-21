@@ -13,6 +13,11 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // Automatically close mobile menu when navigating to a new route
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
+
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -30,7 +35,11 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
     return () => {
       document.body.style.overflow = "";
     };
@@ -42,25 +51,26 @@ export function Navbar() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300 pointer-events-none",
-        isScrolled ? "py-3" : "py-4 sm:py-6"
+        isScrolled ? "py-2.5 sm:py-3" : "py-3 sm:py-5 lg:py-6"
       )}
     >
-      <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-14">
+      <div className="mx-auto max-w-[1440px] px-3.5 sm:px-8 lg:px-14">
         <div
           className={cn(
-            "pointer-events-auto relative flex items-center justify-between gap-3 rounded-full border px-4 py-2 sm:px-6 sm:py-2.5 transition-all duration-300 shadow-[0_10px_35px_rgba(19,50,43,0.08),0_1px_2px_rgba(0,0,0,0.03)]",
+            "pointer-events-auto relative flex items-center justify-between gap-2 sm:gap-3 rounded-full border px-3.5 py-1.5 sm:px-6 sm:py-2.5 transition-all duration-300 shadow-[0_10px_35px_rgba(19,50,43,0.08),0_1px_2px_rgba(0,0,0,0.03)]",
             isScrolled
               ? "border-[#d8e2d4] bg-white/95 shadow-[0_14px_40px_rgba(19,50,43,0.12)] backdrop-blur-2xl"
-              : "border-white/90 bg-white/85 backdrop-blur-xl"
+              : "border-white/90 bg-white/90 backdrop-blur-xl"
           )}
         >
           {/* Brand Logo */}
           <Link
             href="/"
+            onClick={closeMobileMenu}
             aria-label="Ennerty Solar Home"
             className="shrink-0 transition-transform duration-200 hover:scale-102 outline-none focus:outline-none flex items-center py-0.5"
           >
-            <EnnertyLogo variant="light" size="md" className="h-10 sm:h-12" />
+            <EnnertyLogo variant="light" size="sm" className="h-8 sm:h-10 lg:h-11" />
           </Link>
 
           {/* Center Nav Links (Linear / Apple style pill navigation) */}
@@ -106,7 +116,7 @@ export function Navbar() {
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-navigation"
             onClick={() => setMobileMenuOpen((open) => !open)}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d6e0d2] bg-white text-[#13322b] transition hover:bg-[#edf3e8] outline-none focus:outline-none lg:hidden"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d6e0d2] bg-white text-[#13322b] transition hover:bg-[#edf3e8] outline-none focus:outline-none cursor-pointer lg:hidden shrink-0"
           >
             {mobileMenuOpen ? <X className="h-4.5 w-4.5" /> : <Menu className="h-4.5 w-4.5" />}
           </button>
@@ -114,52 +124,60 @@ export function Navbar() {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div
-            id="mobile-navigation"
-            className="pointer-events-auto mt-3 overflow-hidden rounded-3xl border border-[#dce5d8] bg-white/95 p-4 shadow-[0_20px_50px_rgba(19,50,43,0.14)] backdrop-blur-2xl lg:hidden"
-          >
-            <nav aria-label="Mobile navigation" className="space-y-1">
-              {NAV_LINKS.map((link) => {
-                const isActive = link.href === pathname;
-                return (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    aria-current={isActive ? "page" : undefined}
-                    onClick={closeMobileMenu}
-                    className={cn(
-                      "flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-semibold transition-all",
-                      isActive
-                        ? "bg-[#13322b] text-[#f5f8e9]"
-                        : "text-[#4a6d5e] hover:bg-[#edf3e8] hover:text-[#13322b]"
-                    )}
-                  >
-                    {link.label}
-                    <ArrowUpRight className="h-4 w-4 opacity-60" strokeWidth={1.8} />
-                  </Link>
-                );
-              })}
-            </nav>
+          <>
+            {/* Clickable Backdrop to Dismiss */}
+            <div
+              className="fixed inset-0 top-[70px] z-40 bg-black/20 backdrop-blur-xs lg:hidden pointer-events-auto"
+              onClick={closeMobileMenu}
+            />
 
-            <div className="mt-4 grid grid-cols-2 gap-2.5 border-t border-[#e2ebd9] pt-3.5">
-              <a
-                href={`tel:${COMPANY_DETAILS.phone}`}
-                onClick={closeMobileMenu}
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#d6e0d2] bg-[#f4f7ee] px-3 py-3 text-xs font-semibold text-[#13322b] transition hover:bg-white"
-              >
-                <Phone className="h-4 w-4 text-[#13322b]" strokeWidth={1.8} />
-                Call us
-              </a>
-              <Link
-                href="/contact"
-                onClick={closeMobileMenu}
-                className="inline-flex items-center justify-center gap-1.5 rounded-2xl bg-[#13322b] px-3 py-3 text-xs font-bold text-[#f5f8e9] shadow-sm transition hover:bg-[#174a40]"
-              >
-                Get a quote
-                <ArrowUpRight className="h-4 w-4 text-[#b4e67e] stroke-[2.2]" />
-              </Link>
+            <div
+              id="mobile-navigation"
+              className="pointer-events-auto relative z-50 mt-2 overflow-hidden rounded-3xl border border-[#dce5d8] bg-white/95 p-4 shadow-[0_20px_50px_rgba(19,50,43,0.18)] backdrop-blur-2xl lg:hidden animate-in fade-in slide-in-from-top-2 duration-200"
+            >
+              <nav aria-label="Mobile navigation" className="space-y-1">
+                {NAV_LINKS.map((link) => {
+                  const isActive = link.href === pathname;
+                  return (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      aria-current={isActive ? "page" : undefined}
+                      onClick={closeMobileMenu}
+                      className={cn(
+                        "flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-semibold transition-all",
+                        isActive
+                          ? "bg-[#13322b] text-[#f5f8e9]"
+                          : "text-[#4a6d5e] hover:bg-[#edf3e8] hover:text-[#13322b]"
+                      )}
+                    >
+                      {link.label}
+                      <ArrowUpRight className="h-4 w-4 opacity-60" strokeWidth={1.8} />
+                    </Link>
+                  );
+                })}
+              </nav>
+
+              <div className="mt-4 grid grid-cols-2 gap-2.5 border-t border-[#e2ebd9] pt-3.5">
+                <a
+                  href={`tel:${COMPANY_DETAILS.phone}`}
+                  onClick={closeMobileMenu}
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#d6e0d2] bg-[#f4f7ee] px-3 py-3 text-xs font-semibold text-[#13322b] transition hover:bg-white"
+                >
+                  <Phone className="h-4 w-4 text-[#13322b]" strokeWidth={1.8} />
+                  Call us
+                </a>
+                <Link
+                  href="/contact"
+                  onClick={closeMobileMenu}
+                  className="inline-flex items-center justify-center gap-1.5 rounded-2xl bg-[#13322b] px-3 py-3 text-xs font-bold text-[#f5f8e9] shadow-sm transition hover:bg-[#174a40]"
+                >
+                  Get a quote
+                  <ArrowUpRight className="h-4 w-4 text-[#b4e67e] stroke-[2.2]" />
+                </Link>
+              </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </header>

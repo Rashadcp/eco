@@ -9,29 +9,29 @@ import { COMPANY_DETAILS } from "@/data/content";
 const footerGroups = [
   {
     title: "Solutions",
-    links: [
-      ["Solar panels & inverters", "/products"],
-      ["Tata Power Solar panels", "/products"],
-      ["Adani Solar modules", "/products"],
-      ["V-Guard & Havells inverters", "/products"],
+    items: [
+      "Solar panels & inverters",
+      "Tata Power Solar panels",
+      "Adani Solar modules",
+      "V-Guard & Havells inverters",
     ],
   },
   {
     title: "Company",
-    links: [
-      ["About Ennerty", "/about"],
-      ["EcoHarmony Enterprises", "/about"],
-      ["Installation process", "/process"],
-      ["Kerala branch offices", "/contact"],
+    items: [
+      "About Ennerty",
+      "EcoHarmony Enterprises",
+      "Installation process",
+      "Kerala branch offices",
     ],
   },
   {
     title: "Resources",
-    links: [
-      ["PM Surya Ghar subsidy", "/process"],
-      ["KSEB net metering", "/process"],
-      ["25-year panel warranty", "/process"],
-      ["GST & invoice compliance", "/process"],
+    items: [
+      "PM Surya Ghar subsidy",
+      "KSEB net metering",
+      "25-year panel warranty",
+      "GST & invoice compliance",
     ],
   },
 ];
@@ -91,24 +91,18 @@ export function Footer() {
 
           <div className="grid grid-cols-1 gap-9 sm:grid-cols-3 sm:gap-6">
             {footerGroups.map((group) => (
-              <nav key={group.title} aria-label={group.title}>
+              <div key={group.title}>
                 <h3 className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#d7e4cf]">
                   {group.title}
                 </h3>
-                <ul className="mt-5 space-y-3">
-                  {group.links.map(([label, href]) => (
-                    <li key={label}>
-                      <Link
-                        href={href}
-                        className="group inline-flex items-center gap-1 text-xs leading-5 text-[#91aa9c] transition hover:text-[#f4f9df]"
-                      >
-                        {label}
-                        <ArrowUpRight className="h-3 w-3 opacity-0 transition group-hover:translate-x-0.5 group-hover:opacity-70" strokeWidth={1.8} />
-                      </Link>
+                <ul className="mt-5 space-y-2.5">
+                  {group.items.map((item) => (
+                    <li key={item} className="text-xs leading-5 text-[#91aa9c] select-none">
+                      {item}
                     </li>
                   ))}
                 </ul>
-              </nav>
+              </div>
             ))}
           </div>
         </div>
