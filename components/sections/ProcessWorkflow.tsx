@@ -396,20 +396,24 @@ export function ProcessWorkflow({ onScrollToContact }: ProcessWorkflowProps) {
 
           </div>
 
-          {/* Bottom Turnkey Guarantee Strip */}
-          <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-between gap-3 sm:gap-4 rounded-2xl border border-[#dce5d8] bg-white/80 px-4 sm:px-6 py-2.5 sm:py-3 backdrop-blur-sm text-[11px] sm:text-xs font-medium text-[#496b5b]">
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-[#7eaa57] animate-pulse" />
-              <span>
-                <strong>100% Government Subsidy Handled</strong> — Direct DBT credit to your bank account
-              </span>
-            </div>
-
-            <div className="flex items-center gap-4 text-xs font-semibold text-[#285c4c]">
-              <span className="inline-flex items-center gap-1"><ShieldCheck className="h-3.5 w-3.5 text-[#7eaa57]" /> Tier-1 Modules</span>
-              <span className="inline-flex items-center gap-1"><ShieldCheck className="h-3.5 w-3.5 text-[#7eaa57]" /> KSEB Net Metering</span>
-              <span className="inline-flex items-center gap-1"><ShieldCheck className="h-3.5 w-3.5 text-[#7eaa57]" /> 25-Yr Warranty</span>
-            </div>
+          {/* Bottom Minimal Trust Badges */}
+          <div className="mt-5 sm:mt-7 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-[11px] sm:text-xs font-semibold text-[#285c4c]">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#dce5d8] bg-white/90 px-3 py-1 shadow-xs">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#7eaa57] animate-pulse" />
+              100% DBT Subsidy Assistance
+            </span>
+            <span className="inline-flex items-center gap-1 rounded-full border border-[#dce5d8] bg-white/90 px-3 py-1 shadow-xs">
+              <ShieldCheck className="h-3.5 w-3.5 text-[#7eaa57]" />
+              Tier-1 Modules
+            </span>
+            <span className="inline-flex items-center gap-1 rounded-full border border-[#dce5d8] bg-white/90 px-3 py-1 shadow-xs">
+              <ShieldCheck className="h-3.5 w-3.5 text-[#7eaa57]" />
+              KSEB Net Metering
+            </span>
+            <span className="inline-flex items-center gap-1 rounded-full border border-[#dce5d8] bg-white/90 px-3 py-1 shadow-xs">
+              <ShieldCheck className="h-3.5 w-3.5 text-[#7eaa57]" />
+              25-Yr Linear Warranty
+            </span>
           </div>
 
         </div>

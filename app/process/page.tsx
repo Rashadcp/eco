@@ -292,19 +292,24 @@ export default function ProcessPage() {
             })}
           </div>
 
-          {/* Turnkey Guarantee Banner */}
-          <div className="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[#dce5d8] bg-[#eff4eb] px-6 py-4.5 text-xs font-medium text-[#496b5b]">
-            <div className="flex items-center gap-2.5">
-              <span className="h-2.5 w-2.5 rounded-full bg-[#7eaa57] animate-pulse" />
-              <span className="text-sm">
-                <strong>PM Surya Ghar Muft Bijli Yojana:</strong> Direct DBT subsidy of up to ₹78,000 credited straight to your bank account.
-              </span>
-            </div>
-            <div className="flex items-center gap-4 text-xs font-semibold text-[#285c4c]">
-              <span className="inline-flex items-center gap-1"><ShieldCheck className="h-4 w-4 text-[#7eaa57]" /> Tier-1 Modules</span>
-              <span className="inline-flex items-center gap-1"><ShieldCheck className="h-4 w-4 text-[#7eaa57]" /> KSEB Net Metering</span>
-              <span className="inline-flex items-center gap-1"><ShieldCheck className="h-4 w-4 text-[#7eaa57]" /> 25-Yr Linear Warranty</span>
-            </div>
+          {/* Minimal Clean Trust Badges */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs font-semibold text-[#285c4c]">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#dce5d8] bg-[#eff4eb] px-3.5 py-1.5 shadow-xs">
+              <span className="h-2 w-2 rounded-full bg-[#7eaa57] animate-pulse" />
+              PM Surya Ghar Subsidy (₹78,000 DBT)
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#dce5d8] bg-[#eff4eb] px-3.5 py-1.5 shadow-xs">
+              <ShieldCheck className="h-3.5 w-3.5 text-[#7eaa57]" />
+              Tier-1 Modules
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#dce5d8] bg-[#eff4eb] px-3.5 py-1.5 shadow-xs">
+              <ShieldCheck className="h-3.5 w-3.5 text-[#7eaa57]" />
+              KSEB Net Metering
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#dce5d8] bg-[#eff4eb] px-3.5 py-1.5 shadow-xs">
+              <ShieldCheck className="h-3.5 w-3.5 text-[#7eaa57]" />
+              25-Yr Linear Warranty
+            </span>
           </div>
         </div>
       </section>
